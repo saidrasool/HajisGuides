@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/manasik"
+            android:icon="@drawable/ic_jomat"
+            android:title="@string/HajjManasik"
+         />
+        <item
+                android:id="@+id/dua"
+                android:icon="@drawable/ic_dua_hands"
+                android:title="@string/Dua"
+                />
+        <item
+                android:id="@+id/quran"
+                android:icon="@drawable/ic_qurana"
+                android:title="@string/Quran"
+                />
+        <item
+                android:id="@+id/map"
+                android:icon="@drawable/ic_planet_earth"
+                android:title="@string/SaudiMap"
+                />
+</menu>
