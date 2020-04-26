@@ -62,9 +62,9 @@ Context context;
             juzStartingNum.toString();
 
             //TODO
-        // sir i don't what is the problem in this code 
-        quranAdapter = new QuranAdapter(surah,juzStartingNum,surahFirstAyat);
-        rvQuran.setAdapter(quranAdapter);
+        // sir i don't what is the problem in this code
+      //  quranAdapter = new QuranAdapter(surah,juzStartingNum,surahFirstAyat);
+       // rvQuran.setAdapter(quranAdapter);
 
 
         return  v;

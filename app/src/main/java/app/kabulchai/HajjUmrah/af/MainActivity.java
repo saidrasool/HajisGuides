@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity   {
     ManasikFrag manasikFrag;
     DuaFrag duaFrag;
     QuranFrag quranFrag;
-    MapFrag mapFrag;
+    Fragment mapFrag;
 
 
 

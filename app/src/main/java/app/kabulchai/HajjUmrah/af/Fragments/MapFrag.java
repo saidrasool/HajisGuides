@@ -1,9 +1,11 @@
 package app.kabulchai.HajjUmrah.af.Fragments;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -37,15 +39,16 @@ public class MapFrag extends Fragment implements OnMapReadyCallback {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
-        mapFragment =(SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapsId);
+        mapFragment =(SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapsActivity);
         if (mapFragment == null)
         {
             FragmentManager manager = getFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
             mapFragment = SupportMapFragment.newInstance();
-            transaction.replace(R.id.mapsId, mapFragment).commit();
+            transaction.replace(R.id.mapsActivity, mapFragment).commit();
         }
         mapFragment.getMapAsync(this);
+
         return view;
 
     }
@@ -58,3 +61,5 @@ public class MapFrag extends Fragment implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(makka));
     }
 }
+
+
