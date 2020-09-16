@@ -1,4 +1,4 @@
-package app.kabulchai.HajjUmrah.af;
+package app.kabulchai.HajjUmrah.af.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
+
+import app.kabulchai.HajjUmrah.af.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -18,11 +20,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent mansaik = new Intent(SplashScreenActivity.this,MainActivity.class);
+                Intent mansaik = new Intent(SplashScreenActivity.this, MainActivity.class);
                 startActivity(mansaik);
                 finish();
             }
-        },5000);
+        },3000);
 
 
     }

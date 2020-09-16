@@ -6,18 +6,14 @@
             android:title="@string/HajjManasik"
          />
         <item
+            android:id="@+id/quran"
+            android:icon="@drawable/ic_qurana"
+            android:title="@string/Quran"
+            />
+        <item
                 android:id="@+id/dua"
                 android:icon="@drawable/ic_dua_hands"
                 android:title="@string/Dua"
                 />
-        <item
-                android:id="@+id/quran"
-                android:icon="@drawable/ic_qurana"
-                android:title="@string/Quran"
-                />
-        <item
-                android:id="@+id/map"
-                android:icon="@drawable/ic_planet_earth"
-                android:title="@string/SaudiMap"
-                />
+
 </menu>

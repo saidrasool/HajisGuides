@@ -1,23 +1,22 @@
-package app.kabulchai.HajjUmrah.af;
+package app.kabulchai.HajjUmrah.af.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import app.kabulchai.HajjUmrah.af.Fragments.DuaFrag;
 import app.kabulchai.HajjUmrah.af.Fragments.ManasikFrag;
-import app.kabulchai.HajjUmrah.af.Fragments.MapFrag;
 import app.kabulchai.HajjUmrah.af.Fragments.QuranFrag;
+import app.kabulchai.HajjUmrah.af.R;
+import app.kabulchai.HajjUmrah.af.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity   {
 
@@ -31,7 +30,8 @@ public class MainActivity extends AppCompatActivity   {
     ManasikFrag manasikFrag;
     DuaFrag duaFrag;
     QuranFrag quranFrag;
-    Fragment mapFrag;
+
+
 
 
 
@@ -74,18 +74,16 @@ public class MainActivity extends AppCompatActivity   {
                         bar.setTitle(R.string.HajjManasik);
                         viewPager.setCurrentItem(0);
                         break;
-                    case R.id.dua:
-                        bar.setTitle(R.string.Dua);
-                        viewPager.setCurrentItem(1);
-                        break;
                     case R.id.quran:
                         bar.setTitle(R.string.Quran);
                         viewPager.setCurrentItem(2);
                         break;
-                    case R.id.map:
-                        bar.setTitle(R.string.SaudiMap);
-                        viewPager.setCurrentItem(3);
+                    case R.id.dua:
+                        bar.setTitle(R.string.Dua);
+                        viewPager.setCurrentItem(1);
                         break;
+
+
 
                 } return false;
             }
@@ -137,11 +135,9 @@ public class MainActivity extends AppCompatActivity   {
             manasikFrag=new ManasikFrag();
             duaFrag = new DuaFrag();
             quranFrag = new QuranFrag();
-            mapFrag = new MapFrag();
             viewPagerAdapter.addFragment(manasikFrag);
-            viewPagerAdapter.addFragment(duaFrag);
             viewPagerAdapter.addFragment(quranFrag);
-            viewPagerAdapter.addFragment(mapFrag);
+            viewPagerAdapter.addFragment(duaFrag);
             viewPager.setAdapter(viewPagerAdapter);
 
         }
