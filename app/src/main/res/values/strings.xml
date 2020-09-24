@@ -6,8 +6,6 @@
     <string name="SaudiMap" translatable="false">نقشه</string>
     <string name="layout_text">بالاي هر مسلمان لازم است كه بداند كه زماني انسان امكانات رفتن به حج را داشت بالاي وي حج فرض ميباشد ، زيرا حج ركن پنجم دين مقدس اسلام است كه بالاي كسانيكه تواناني ( زاد و راحلـه ) مصارف سفر  ، مصارف نفقه فاميل ،  ومصارف ترانسپورتی رفت وبرگشت را داشته باشته فرض ميباشد . </string>
     <string name="haj">حج</string>
-    <string name="umrah">عمره</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">نقشه</string>
 </resources>

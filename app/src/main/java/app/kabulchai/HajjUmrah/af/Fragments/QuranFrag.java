@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import app.kabulchai.HajjUmrah.af.Fragments.QuranFragment.QuranAdapter;
+
 import app.kabulchai.HajjUmrah.af.R;
 
 /**
@@ -46,7 +46,7 @@ public class QuranFrag extends Fragment {
     };
     int [] juzStartingNum = {1,322,234,234,544,213,345,120,123,120};
 
-        QuranAdapter quranAdapter;
+
 
 Context context;
 

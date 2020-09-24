@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import app.kabulchai.HajjUmrah.af.Activities.InfoActivity;
 import app.kabulchai.HajjUmrah.af.Activities.MapsActivity;
 import app.kabulchai.HajjUmrah.af.R;
 
@@ -49,7 +50,13 @@ private FragmentActivity context;
                     startActivity(mapIntent);
                 }
             });
-
+            settingFB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent settingIntent = new Intent(getActivity(), InfoActivity.class);
+                    startActivity(settingIntent);
+                }
+            });
 
 
         return  view;

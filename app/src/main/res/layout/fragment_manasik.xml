@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/settingFB"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.ManasikFrag">
@@ -34,12 +34,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/settingFB"
         android:layout_width="wrap_content"
         android:backgroundTint="@android:color/white"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:clickable="true"
+
         android:src="@drawable/setting_56"
         app:layout_constraintBottom_toTopOf="@+id/mapFB"
         app:layout_constraintEnd_toEndOf="parent"
