@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "971755767463-kluutp897g3ido7ampblm9bq6d7aiqgj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.kabulchai.HajjUmrah.af",
+            "certificate_hash": "7bebb691274a4094a5a93e0a71779ca80dfde5a5"
+          }
+        },
+        {
           "client_id": "971755767463-pm08kaavpdg0sv0guhb4ec4u937tk4iv.apps.googleusercontent.com",
           "client_type": 3
         }

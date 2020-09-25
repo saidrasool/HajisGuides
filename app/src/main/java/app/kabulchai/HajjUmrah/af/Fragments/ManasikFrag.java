@@ -137,6 +137,12 @@ class ManasikAdapter extends RecyclerView.Adapter<ManasikAdapter.ManasikFragView
         holder.stepName.setText(names[position]);
         holder.ivStepPictures.setImageResource(pic[position]);
         holder.stepDetails.setText(details[position]);
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Intent intent = new Intent(context,InfoActivity.class);
+            }
+        });
     }
 
     @Override
@@ -147,11 +153,14 @@ class ManasikAdapter extends RecyclerView.Adapter<ManasikAdapter.ManasikFragView
     class ManasikFragViewHolder extends RecyclerView.ViewHolder{
         TextView stepName , stepDetails;
         ImageView ivStepPictures;
+        View view;
         public ManasikFragViewHolder(@NonNull View itemView) {
             super(itemView);
             stepName = itemView.findViewById(R.id.tvStepsOfHaj);
             stepDetails = itemView.findViewById(R.id.tvStepsDetails);
             ivStepPictures = itemView.findViewById(R.id.ivManasikPic);
+                 view = itemView;
+
         }
     }
 
