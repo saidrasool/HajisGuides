@@ -32,10 +32,6 @@ public class DuaFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_dua, container, false);
-
-
-
-
         return view;
     }
 

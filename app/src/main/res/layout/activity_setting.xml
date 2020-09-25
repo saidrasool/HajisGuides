@@ -4,6 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:layout_gravity="center"
     tools:context=".Activities.SettingActivity">
+
+
+    <app.kabulchai.HajjUmrah.af.views.CircleImageView
+        android:id="@+id/loginPic"
+        android:layout_width="174dp"
+        android:layout_height="138dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_login_181"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSetting"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPic" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Term and Policies"
+        android:textColor="@android:color/holo_blue_bright"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvSetting"
+        app:layout_constraintVertical_bias="0.333" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import app.kabulchai.HajjUmrah.af.Fragments.DuaFrag;
 import app.kabulchai.HajjUmrah.af.Fragments.ManasikFrag;
 import app.kabulchai.HajjUmrah.af.Fragments.QuranFrag;
 import app.kabulchai.HajjUmrah.af.R;
-import app.kabulchai.HajjUmrah.af.ViewPagerAdapter;
+import app.kabulchai.HajjUmrah.af.Adapter.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity   {
 
@@ -50,37 +51,31 @@ public class MainActivity extends AppCompatActivity   {
                 {
                     // This CODE IS fOR Bottom Navigation with Fragment only
 //                    case R.id.manasik:
-//                        bar.setTitle(R.string.HajjManasik);
+//
 //                        fragment = new ManasikFrag();
 //                        loadFragment(fragment);
-//                        return true;
+//                        viewPager.setCurrentItem(0);
+//                        break;
 //                    case R.id.dua:
-//                        bar.setTitle(R.string.Dua);
 //                        fragment = new DuaFrag();
 //                        loadFragment(fragment);
-//                        return true;
+//                        viewPager.setCurrentItem(1);
+//                        break;
 //                    case R.id.quran:
-//                        bar.setTitle(R.string.Quran);
 //                        fragment = new QuranFrag();
 //                        loadFragment(fragment);
-//                        return true;
-//                    case R.id.map:
-//                        bar.setTitle(R.string.SaudiMap);
-//                        fragment = new MapFrag();
-//                        loadFragment(fragment);
-//                        return true;
-                    // This is code is for BottomNavigation using View Pager and Fragment
+//                        viewPager.setCurrentItem(2);
+//                        break;
+
+//                    // This is code is for BottomNavigation using View Pager and Fragment
                     case R.id.manasik:
-                        bar.setTitle(R.string.HajjManasik);
                         viewPager.setCurrentItem(0);
                         break;
                     case R.id.quran:
-                        bar.setTitle(R.string.Quran);
-                        viewPager.setCurrentItem(2);
+                        viewPager.setCurrentItem(1);
                         break;
                     case R.id.dua:
-                        bar.setTitle(R.string.Dua);
-                        viewPager.setCurrentItem(1);
+                        viewPager.setCurrentItem(2);
                         break;
 
 
@@ -120,7 +115,7 @@ public class MainActivity extends AppCompatActivity   {
 
 
 // this is for simple Bottom
-
+//
 //    public void loadFragment(Fragment fragment)
 //    {
 //        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

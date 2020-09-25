@@ -18,7 +18,7 @@
         android:roundIcon="@drawable/ic_jomat"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.SettingActivity"></activity>
+        <activity android:name=".Activities.SettingActivity" ></activity>
         <activity android:name=".Activities.InfoActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -33,7 +33,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Activities.MapsActivity"
+            android:name=".Activities.MapsActivity" android:theme="@style/AppTheme"
             android:label="@string/title_activity_maps" />
 
         <meta-data

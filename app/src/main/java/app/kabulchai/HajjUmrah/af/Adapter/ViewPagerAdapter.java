@@ -1,4 +1,4 @@
-package app.kabulchai.HajjUmrah.af;
+package app.kabulchai.HajjUmrah.af.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

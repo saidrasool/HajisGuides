@@ -8,6 +8,7 @@
     app:cardCornerRadius="13dp"
     android:layout_margin="11sp"
 
+
     >
 
  <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +21,7 @@
          android:layout_height="44dp"
          android:text="احرام"
          android:textColor="@android:color/holo_blue_bright"
-         android:textSize="38dp"
+         android:textSize="30dp"
          android:textStyle="bold"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +47,7 @@
 
      <ImageView
          android:id="@+id/ivManasikPic"
+
 
          android:layout_width="match_parent"
          android:layout_height="118dp"
