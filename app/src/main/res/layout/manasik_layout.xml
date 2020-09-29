@@ -7,6 +7,7 @@
     android:layout_height="200sp"
     app:cardCornerRadius="13dp"
     android:layout_margin="11sp"
+    android:id="@+id/customcardview"
 
 
     >
@@ -48,7 +49,7 @@
      <ImageView
          android:id="@+id/ivManasikPic"
 
-
+        android:background="@drawable/card_style"
          android:layout_width="match_parent"
          android:layout_height="118dp"
          app:layout_constraintBottom_toBottomOf="parent"

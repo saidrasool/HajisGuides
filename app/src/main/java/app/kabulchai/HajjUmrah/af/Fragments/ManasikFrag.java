@@ -1,11 +1,9 @@
 package app.kabulchai.HajjUmrah.af.Fragments;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import app.kabulchai.HajjUmrah.af.Activities.InfoActivity;
 import app.kabulchai.HajjUmrah.af.Activities.MapsActivity;
 import app.kabulchai.HajjUmrah.af.Activities.SettingActivity;
+
+import app.kabulchai.HajjUmrah.af.Adapter.ManasikAdapter;
+import app.kabulchai.HajjUmrah.af.Model.HajManasik;
 import app.kabulchai.HajjUmrah.af.R;
 
 /**
@@ -38,7 +36,7 @@ public class ManasikFrag extends Fragment  {
     }
 private FragmentActivity context;
     ManasikAdapter adapter;
-    RecyclerView.LayoutManager manager;
+       RecyclerView.LayoutManager manager;
     RecyclerView rvManasik;
 
 
@@ -68,10 +66,10 @@ private FragmentActivity context;
         View view =  inflater.inflate(R.layout.fragment_manasik, container, false);
             rvManasik = view.findViewById(R.id.rvManasik);
 
-            adapter = new ManasikAdapter(context,names,details,pic);
+            adapter = new ManasikAdapter(getContext(),names,details,pic);
             manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL , false);
-        rvManasik.setAdapter(adapter);
-        rvManasik.setLayoutManager(manager);
+            rvManasik.setAdapter(adapter);
+            rvManasik.setLayoutManager(manager);
 
 
 
@@ -100,69 +98,15 @@ private FragmentActivity context;
                 }
             });
 
+
+
+//            FirebaseRecyclerOptions<HajManasik> options =
+//                    new FirebaseRecylcerOptions.Builder<>()
+//                    .setQuery(query , chat.class)
+//                    .build();
         return  view;
     }
 }
 
 
 
-class ManasikAdapter extends RecyclerView.Adapter<ManasikAdapter.ManasikFragViewHolder>
-{
-
-    public ManasikAdapter(Context context, String[] names, String[] details, int[] pic) {
-        this.context = context;
-        this.names = names;
-        this.details = details;
-        this.pic = pic;
-    }
-
-    Context context;
-    String [] names;
-    String [] details;
-    int [] pic;
-
-
-
-
-    @NonNull
-    @Override
-    public ManasikFragViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.manasik_layout,parent,false);
-        return new ManasikFragViewHolder(v);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ManasikFragViewHolder holder, int position) {
-        holder.stepName.setText(names[position]);
-        holder.ivStepPictures.setImageResource(pic[position]);
-        holder.stepDetails.setText(details[position]);
-        holder.view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            Intent intent = new Intent(context,InfoActivity.class);
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return names.length;
-    }
-
-    class ManasikFragViewHolder extends RecyclerView.ViewHolder{
-        TextView stepName , stepDetails;
-        ImageView ivStepPictures;
-        View view;
-        public ManasikFragViewHolder(@NonNull View itemView) {
-            super(itemView);
-            stepName = itemView.findViewById(R.id.tvStepsOfHaj);
-            stepDetails = itemView.findViewById(R.id.tvStepsDetails);
-            ivStepPictures = itemView.findViewById(R.id.ivManasikPic);
-                 view = itemView;
-
-        }
-    }
-
-
-}

@@ -6,6 +6,8 @@
         <item name="colorPrimary">#020202</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        
+        <item name="fontFamily">font</item>
     </style>
 
 
