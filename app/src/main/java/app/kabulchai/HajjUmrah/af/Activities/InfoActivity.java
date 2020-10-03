@@ -12,25 +12,28 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
-import app.kabulchai.HajjUmrah.af.Adapter.ManasikAdapter;
+
 import app.kabulchai.HajjUmrah.af.R;
 
 public class InfoActivity extends AppCompatActivity {
+    TextView step , description;
+    ImageView stepPicture;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-        TextView step , description;
-        ImageView stepPicture;
 
         step = findViewById(R.id.title);
         description = findViewById(R.id.description);
         stepPicture = findViewById(R.id.stepPic);
+
+
+
         Intent intent = getIntent();
         String title = intent.getStringExtra("TITLE");
-        int stepsImage = intent.getIntExtra("IMAGE" , 0);
+        int stepsImage = intent.getIntExtra("PICTURE" , 0);
         String stepDescription = intent.getStringExtra("DESCRIPTION");
   //      Toast.makeText(this, ""+textdescription, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(this, ""+description, Toast.LENGTH_SHORT).show();

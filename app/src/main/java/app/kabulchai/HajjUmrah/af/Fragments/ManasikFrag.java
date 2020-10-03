@@ -4,16 +4,26 @@ package app.kabulchai.HajjUmrah.af.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.constraintlayout.solver.widgets.ConstraintWidget;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import app.kabulchai.HajjUmrah.af.Activities.MapsActivity;
 import app.kabulchai.HajjUmrah.af.Activities.SettingActivity;
@@ -22,55 +32,58 @@ import app.kabulchai.HajjUmrah.af.Adapter.ManasikAdapter;
 import app.kabulchai.HajjUmrah.af.Model.HajManasik;
 import app.kabulchai.HajjUmrah.af.R;
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ManasikFrag extends Fragment  {
-
-
-
+    // btns
     FloatingActionButton mapFB , settingFB;
 
-    public ManasikFrag() {
-        // Required empty public constructor
-    }
-private FragmentActivity context;
-    ManasikAdapter adapter;
-       RecyclerView.LayoutManager manager;
-    RecyclerView rvManasik;
+    private List<HajManasik>listData;
+    private ManasikAdapter adapter;
+    private RecyclerView.LayoutManager manager;
+    private RecyclerView rvManasik;
+    final String TAG = ManasikFrag.class.getSimpleName();
 
 
-    String [] names   = {   "احرام","طواف قدوم","سعی در میان صفا و مروه","تراشیدن موهای سر","منَی ","عرفات","حرکت بسوی مزدلفه ","حرکت بسوی منَی","قربانی","تراشیدن موی","طواف زیارت","رمی جمرات"  ,"طواف وداع " };
-    String [] details = {
-            "ما باید پیش از میقات احرام خود را بسته نمایم.احرام عبارت از داخل شدن به افعال حج ویا عمره است که به نیت و فعل هم صورت گرفته میشود.",
-            "هنگامیکه به مکه داخل شد ، با وضوء و طهارت از مسجد حرام اغاز مینمایم ، وقتیکه به خانه کعبه نگاه نمودیم ، تکبیر و تهلیل میگویم ،\u200C سپس طواف میکنیم . ",
-            "بعد از ختم کردن طواف قدوم سپس به کوه صفا بالا این أیت میخوانیم :\n" +
-                    "« إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّـهِ ۖ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَن يَطَّوَّفَ بِهِمَا ۚ وَمَن تَطَوَّعَ خَيْرًا فَإِنَّ اللَّـهَ شَاكِرٌ عَلِيمٌ » ",
-            "وقتی که سعی پایان یافت موهای سر خود را می تراشیم و بعد از ان احرام خود را می کشیم ",
-            "در روز هشتم احرام را بسته میکنیم و از مکه به منَی میرویم و این روز را بنا (یوم ترویه) نیز یاد میشود. ادعای پنج وقت نماز در منَی باقی می مانیم. وقتی کی آفتاب طلوع نمود آن وقت بسوی عرفات حرکت میکنیم ",
-            "روز نهم ذالحجه که بنام روز عرفه یاد میشود در عرفات میمانیم. وقتی که به عرفات رسیدم تا غروب افتاب در عرفات  آقامت میمانیم. امام نماز ظهر و عصر را با مردم میخواند ",
-            "بعد از غروب افتاب از عرفات به مزدلفه میرویم نماز شام و خفتن را در نمیخوانم وقتی کی به مزدلفه رسیدم نماز شام و خفتن را در مزدلفه  را به یک اذان و اقامت میخوانیم ",
-            "وقتی کی به طلوع افتاب وقت کم باقی باشد حرکت میکنیم بسوی منَی . زمانی کی بسوی منی رسیدم از جمرهء عقبه شروع نموده و آن را هفت سنگریزه میزنیم با پرتاب هر هر سنگریزه ",
-            "بعد از رمی جمرهء عقبه یا سنگریزه جمره عقبه ذبح مینمایم",
-            "بعد از ذبح نمودن حیوان مانند گوسفند وغیره موهای سر خود را می تراشیم یا قصر می نمایم و از احرام خود خارج میشویم و بدون زن همه چیز بر او حل میشود ",
-            "، طواف زیارت باقی میماند ، که فرض است ، وقتی طواف زیارت سه روز بوده و از طلوع افتاب روز عید آغاز میشود ،\u200C تا غروب آفتاب روز دوازدهم ادامه دارد ",
-            "بعد از طواف زیارت به منَی بر میگردیم و در روز یازدهم و دوازدهم بعد از زوال آفتاب جمرات ر رمی میکنیم.  نخست جمره ء صغرا را که نزدیک مسجد خیف است ، با سنگریزه میزنیم .",
-            "بعد از جمرهء ها ،\u200C بدون طواف وداع چیز دیگری از مناسک حج باقی نمی ماند. طواف وداع بنا « طواف صدر» نیز یاد میشود. این طواف بر کسانیکه از خارج میقات می آید واجب است هنگامیکه به مکهء مکرمه بر میگردد برایش جایز است تا طواف وداع نموده وبه وطنش برگردد."
-    };
-    int [] pic = {R.drawable.ihram,R.drawable.tawafk,R.drawable.safamarwa,R.drawable.shavinghairs,R.drawable.mina,R.drawable.arafat,R.drawable.muzdalipa,R.drawable.mina,R.drawable.qurbani,R.drawable.shavinghairs,R.drawable.tawafk,R.drawable.ramijamrat,R.drawable.tawafk};
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_manasik, container, false);
+            View view =  inflater.inflate(R.layout.fragment_manasik, container, false);
             rvManasik = view.findViewById(R.id.rvManasik);
 
-            adapter = new ManasikAdapter(getContext(),names,details,pic);
-            manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL , false);
-            rvManasik.setAdapter(adapter);
-            rvManasik.setLayoutManager(manager);
 
+
+            listData=new ArrayList<>();
+
+
+        final DatabaseReference nm= FirebaseDatabase.getInstance().getReference("lang_dari");
+        nm.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    for (DataSnapshot npsnapshot : dataSnapshot.getChildren()){
+                       HajManasik list=npsnapshot.getValue(HajManasik.class);
+                        listData.add(list);
+                        Log.d(TAG, "onDataChange: ");
+                    }
+                    adapter=new ManasikAdapter(listData,getContext());
+                    rvManasik.setAdapter(adapter);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "onCancelled: ");
+
+            }
+        });
+        manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL , false);
+        rvManasik.setLayoutManager(manager);
 
 
 
