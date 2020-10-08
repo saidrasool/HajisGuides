@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -47,22 +46,28 @@ public class ManasikAdapter extends RecyclerView.Adapter<ManasikAdapter.ManasikF
     @Override
     public void onBindViewHolder(@NonNull ManasikFragViewHolder holder, int position) {
         final HajManasik obj = listData.get(position);
+
+
+
+         Log.d("data",obj.getImgUrl());
+
         // for Steps Name
-        holder.stepName.setText(obj.getStepsName());
+        holder.stepName.setText(obj.getName());
         // for step Def
-        holder.stepDetails.setText(obj.getStepDef());
+        holder.stepDetails.setText(obj.getDef());
         // for steps Pictures
         Glide.with(context)
-                .load(obj.getStePicture())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .load(obj.getImgUrl())
+                .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .into(holder.ivStepPictures);
+
       holder.customcardview.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
               Intent pass = new Intent(context , InfoActivity.class);
-              pass.putExtra(STEPS_TITLE,obj.getStepsName());
-              pass.putExtra(STEPS_DESCRIPTION,obj.getStepDef());
-              pass.putExtra(STEPS_PIC,obj.getStePicture());
+              pass.putExtra(STEPS_TITLE,obj.getName());
+              pass.putExtra(STEPS_DESCRIPTION,obj.getDef());
+              pass.putExtra(STEPS_PIC,obj.getImgUrl());
               context.startActivity(pass);
           }
       });
@@ -71,7 +76,7 @@ public class ManasikAdapter extends RecyclerView.Adapter<ManasikAdapter.ManasikF
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listData.size();
     }
 
     class ManasikFragViewHolder extends RecyclerView.ViewHolder{

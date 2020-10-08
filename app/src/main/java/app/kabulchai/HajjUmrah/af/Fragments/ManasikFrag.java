@@ -70,20 +70,21 @@ public class ManasikFrag extends Fragment  {
                     for (DataSnapshot npsnapshot : dataSnapshot.getChildren()){
                        HajManasik list=npsnapshot.getValue(HajManasik.class);
                         listData.add(list);
-                        Log.d(TAG, "onDataChange: ");
+                        Log.d(TAG, "onDataChange: "+listData.size());
                     }
                     adapter=new ManasikAdapter(listData,getContext());
                     rvManasik.setAdapter(adapter);
+                    manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL , false);
+                    rvManasik.setLayoutManager(manager);
+                    nm.keepSynced(true);
                 }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, "onCancelled: ");
+                Log.e(TAG, "onCancelled: "+databaseError.getMessage());
 
             }
         });
-        manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL , false);
-        rvManasik.setLayoutManager(manager);
 
 
 

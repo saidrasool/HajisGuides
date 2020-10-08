@@ -2,36 +2,36 @@ package app.kabulchai.HajjUmrah.af.Model;
 
 public class HajManasik {
 
-    String stepsName , stepDef ;
-    int stePicture;
-    public HajManasik(String stepsName, String stepDef, int stePicture) {
-        this.stepsName = stepsName;
-        this.stepDef = stepDef;
-        this.stePicture = stePicture;
+    String name, def;
+    String imgUrl;
+    public HajManasik(String name, String def, String imgUrl) {
+        this.name = name;
+        this.def = def;
+        this.imgUrl = imgUrl;
     }
     public HajManasik() {}
 
-    public String getStepsName() {
-        return stepsName;
+    public String getName() {
+        return name;
     }
 
-    public void setStepsName(String stepsName) {
-        this.stepsName = stepsName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getStepDef() {
-        return stepDef;
+    public String getDef() {
+        return def;
     }
 
-    public void setStepDef(String stepDef) {
-        this.stepDef = stepDef;
+    public void setDef(String def) {
+        this.def = def;
     }
 
-    public int getStePicture() {
-        return stePicture;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setStePicture(int stePicture) {
-        this.stePicture = stePicture;
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }
