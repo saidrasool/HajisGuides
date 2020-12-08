@@ -5,29 +5,18 @@ import android.content.Context;
 public class Dua {
 
     // Constructor
-    Context context;
-    String Details;
+    String dua;
     public Dua(){}
-    public Dua(Context context, String details) {
-        this.context = context;
-        Details = details;
+
+    public Dua(String dua) {
+        this.dua = dua;
     }
 
-
-// getter and Setter Methods
-    public Context getContext() {
-        return context;
+    public String getDua() {
+        return dua;
     }
 
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public String getDetails() {
-        return Details;
-    }
-
-    public void setDetails(String details) {
-        Details = details;
+    public void setDua(String dua) {
+        this.dua = dua;
     }
 }

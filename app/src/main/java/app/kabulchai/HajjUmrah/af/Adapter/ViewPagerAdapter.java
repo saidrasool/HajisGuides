@@ -11,7 +11,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> nav_list = new ArrayList<>();
 
     public ViewPagerAdapter(FragmentManager manager){
-                super(manager);
+        super(manager);
     }
 
     @NonNull

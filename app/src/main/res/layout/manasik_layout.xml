@@ -6,17 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="200sp"
     app:cardCornerRadius="13dp"
-    android:layout_margin="11sp"
-    android:id="@+id/customcardview"
-
-
-    >
+    android:layout_margin="16sp"
+    android:id="@+id/customcardview">
 
  <androidx.constraintlayout.widget.ConstraintLayout
+     android:layout_gravity="center"
      android:layout_width="match_parent"
      android:layout_height="match_parent">
 
      <TextView
+         android:gravity="center"
          android:id="@+id/tvStepsOfHaj"
          android:layout_width="wrap_content"
          android:layout_height="44dp"
@@ -29,6 +28,7 @@
          app:layout_constraintTop_toTopOf="parent" />
 
      <TextView
+
          android:id="@+id/tvStepsDetails"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
@@ -48,14 +48,14 @@
 
      <ImageView
          android:id="@+id/ivManasikPic"
-
-        android:background="@drawable/card_style"
          android:layout_width="match_parent"
-         android:layout_height="118dp"
+         android:layout_height="wrap_content"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.0"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toBottomOf="@+id/tvStepsDetails"
+         app:layout_constraintVertical_bias="0.0"
          app:srcCompat="@drawable/images" />
  </androidx.constraintlayout.widget.ConstraintLayout>
 

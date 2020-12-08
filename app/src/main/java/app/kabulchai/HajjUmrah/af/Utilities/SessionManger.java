@@ -23,19 +23,19 @@ public class SessionManger {
 
     public SessionManger(Context c)
     {
-    this.context = c;
-    // Getting instance of the app
-    myApp = HajjUmrah.getInstance();
+        this.context = c;
+        // Getting instance of the app
+        myApp = HajjUmrah.getInstance();
 
-    // Making it ready for getting data
-    pref = context.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
-    editor = pref.edit();
+        // Making it ready for getting data
+        pref = context.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
+        editor = pref.edit();
     }
     public static SessionManger getInstance(Context context)
     {
         if (instance == null)
         {
-        instance = new SessionManger(context);
+            instance = new SessionManger(context);
         }
         return instance;
     }

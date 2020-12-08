@@ -49,7 +49,7 @@ public class ManasikAdapter extends RecyclerView.Adapter<ManasikAdapter.ManasikF
 
 
 
-         Log.d("data",obj.getImgUrl());
+        Log.d("data",obj.getImgUrl());
 
         // for Steps Name
         holder.stepName.setText(obj.getName());
@@ -61,16 +61,16 @@ public class ManasikAdapter extends RecyclerView.Adapter<ManasikAdapter.ManasikF
                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                 .into(holder.ivStepPictures);
 
-      holder.customcardview.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              Intent pass = new Intent(context , InfoActivity.class);
-              pass.putExtra(STEPS_TITLE,obj.getName());
-              pass.putExtra(STEPS_DESCRIPTION,obj.getDef());
-              pass.putExtra(STEPS_PIC,obj.getImgUrl());
-              context.startActivity(pass);
-          }
-      });
+        holder.customcardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent pass = new Intent(context , InfoActivity.class);
+                pass.putExtra(STEPS_TITLE,obj.getName());
+                pass.putExtra(STEPS_DESCRIPTION,obj.getDef());
+                pass.putExtra(STEPS_PIC,obj.getImgUrl());
+                context.startActivity(pass);
+            }
+        });
 
     }
 

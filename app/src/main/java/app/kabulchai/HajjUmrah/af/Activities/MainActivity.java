@@ -84,30 +84,30 @@ public class MainActivity extends AppCompatActivity   {
             }
         });
 
-    viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            if (prevMenuItem != null) {
-                prevMenuItem.setChecked(false);
-            } else{
-        bottomNavigationView.getMenu().getItem(0).setChecked(false);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
-            Log.d("page", "onPageSelected: "+position);
-            bottomNavigationView.getMenu().getItem(position).setChecked(true);
-            prevMenuItem = bottomNavigationView.getMenu().getItem(position);
+
+            @Override
+            public void onPageSelected(int position) {
+                if (prevMenuItem != null) {
+                    prevMenuItem.setChecked(false);
+                } else{
+                    bottomNavigationView.getMenu().getItem(0).setChecked(false);
+                }
+                Log.d("page", "onPageSelected: "+position);
+                bottomNavigationView.getMenu().getItem(position).setChecked(true);
+                prevMenuItem = bottomNavigationView.getMenu().getItem(position);
 
 
-        }
+            }
 
-        @Override
-        public void onPageScrollStateChanged(int state) {
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
-        }
-    });
+            }
+        });
         setupViewPager(viewPager);
     }
 
@@ -125,15 +125,15 @@ public class MainActivity extends AppCompatActivity   {
 //    }
 
 
-        private void setupViewPager(ViewPager viewPager){
-            ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-            manasikFrag=new ManasikFrag();
-            duaFrag = new DuaFrag();
-            quranFrag = new QuranFrag();
-            viewPagerAdapter.addFragment(manasikFrag);
-            viewPagerAdapter.addFragment(quranFrag);
-            viewPagerAdapter.addFragment(duaFrag);
-            viewPager.setAdapter(viewPagerAdapter);
+    private void setupViewPager(ViewPager viewPager){
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        manasikFrag=new ManasikFrag();
+        duaFrag = new DuaFrag();
+        quranFrag = new QuranFrag();
+        viewPagerAdapter.addFragment(manasikFrag);
+        viewPagerAdapter.addFragment(quranFrag);
+        viewPagerAdapter.addFragment(duaFrag);
+        viewPager.setAdapter(viewPagerAdapter);
 
-        }
+    }
 }

@@ -37,18 +37,18 @@ public class QuranFrag extends Fragment {
             "ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
             ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ",
             "ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
-        , "ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
-          ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
-        ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
-    ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
-    ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
-    ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
+            , "ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
+            ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
+            ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
+            ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
+            ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
+            ,"ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ"
     };
     int [] juzStartingNum = {1,322,234,234,544,213,345,120,123,120};
 
 
 
-Context context;
+    Context context;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,12 +59,12 @@ Context context;
         rvQuran = v.findViewById(R.id.rvQuran);
         manager = new GridLayoutManager(context,2);
         rvQuran.setLayoutManager(manager);
-            juzStartingNum.toString();
+        juzStartingNum.toString();
 
-            //TODO
+        //TODO
         // sir i don't what is the problem in this code
-      //  quranAdapter = new QuranAdapter(surah,juzStartingNum,surahFirstAyat);
-       // rvQuran.setAdapter(quranAdapter);
+        //  quranAdapter = new QuranAdapter(surah,juzStartingNum,surahFirstAyat);
+        // rvQuran.setAdapter(quranAdapter);
 
 
         return  v;

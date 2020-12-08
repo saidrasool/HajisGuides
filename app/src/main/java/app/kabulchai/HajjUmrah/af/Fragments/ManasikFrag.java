@@ -54,12 +54,12 @@ public class ManasikFrag extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-            View view =  inflater.inflate(R.layout.fragment_manasik, container, false);
-            rvManasik = view.findViewById(R.id.rvManasik);
+        View view =  inflater.inflate(R.layout.fragment_manasik, container, false);
+        rvManasik = view.findViewById(R.id.rvManasik);
 
 
 
-            listData=new ArrayList<>();
+        listData=new ArrayList<>();
 
 
         final DatabaseReference nm= FirebaseDatabase.getInstance().getReference("lang_dari");
@@ -68,7 +68,7 @@ public class ManasikFrag extends Fragment  {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                     for (DataSnapshot npsnapshot : dataSnapshot.getChildren()){
-                       HajManasik list=npsnapshot.getValue(HajManasik.class);
+                        HajManasik list=npsnapshot.getValue(HajManasik.class);
                         listData.add(list);
                         Log.d(TAG, "onDataChange: "+listData.size());
                     }
@@ -96,21 +96,21 @@ public class ManasikFrag extends Fragment  {
 
 
         mapFB = view.findViewById(R.id.mapFB);
-            settingFB = view.findViewById(R.id.settingFB);
-            mapFB.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent mapIntent = new Intent(getActivity() , MapsActivity.class);
-                    startActivity(mapIntent);
-                }
-            });
-            settingFB.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent settingIntent = new Intent(getActivity(), SettingActivity.class);
-                    startActivity(settingIntent);
-                }
-            });
+        settingFB = view.findViewById(R.id.settingFB);
+        mapFB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mapIntent = new Intent(getActivity() , MapsActivity.class);
+                startActivity(mapIntent);
+            }
+        });
+        settingFB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent settingIntent = new Intent(getActivity(), SettingActivity.class);
+                startActivity(settingIntent);
+            }
+        });
 
 
 

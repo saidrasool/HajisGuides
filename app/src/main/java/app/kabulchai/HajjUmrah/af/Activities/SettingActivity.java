@@ -23,10 +23,10 @@ public class SettingActivity extends AppCompatActivity {
     String [] settingNames ={"Languages" , "theme" ,"Support us" , "Contact" , "About"};
     int [] settingPictures =
             {R.drawable.ic_language_24,
-            R.drawable.ic_theme,
-            R.drawable.ic_support,
-            R.drawable.ic_contact,
-            R.drawable.ic_about};
+                    R.drawable.ic_theme,
+                    R.drawable.ic_support,
+                    R.drawable.ic_contact,
+                    R.drawable.ic_about};
 
 
     RecyclerView rvSetting;

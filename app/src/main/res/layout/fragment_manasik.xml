@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+    android:layout_marginTop="15dp"
     android:layout_height="match_parent"
     tools:context=".Fragments.ManasikFrag">
-
+<!--        TODO FOR RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
+
         android:id="@+id/rvManasik"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,7 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:clickable="true"
-
         android:src="@drawable/setting_56"
         app:layout_constraintBottom_toTopOf="@+id/mapFB"
         app:layout_constraintEnd_toEndOf="parent"
